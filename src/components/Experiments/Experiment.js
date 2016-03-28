@@ -10,9 +10,9 @@ export default class Experiment extends Component {
   createLongList() {
     const longNumber = 1000;
     const foo = [];
-    let i = 0;
-    for (i = 0; i <= longNumber; i++) {
-      foo.push(i);
+    let tempint = 0;
+    for (tempint = 0; tempint <= longNumber; tempint++) {
+      foo.push(Math.floor(Math.random() * 1000) + 1);
     }
     return foo;
   }
@@ -20,19 +20,19 @@ export default class Experiment extends Component {
   render() {
     const t1 = performance.now();
     const text = this.state.liked ? 'like' : 'haven\'t liked';
-
     const handleClick = ()=> {
       this.setState({
         liked: !this.state.liked
       });
     };
+    let iint = 0;
     return (
       <div className="container">
       <Helmet title="Experient Page"/>
       <h1>Experiment Page</h1>
       {
         this.state.list.map((foo) => {
-          return <div>Hello, {foo}!</div>;
+          return <div>Hello, {this.state.list[iint++]}!</div>;
         })
       }
       <p onClick={handleClick}>
